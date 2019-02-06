@@ -114,8 +114,22 @@ _print_log(stdout, "Warning", _fmt, ##__VA_ARGS__);                         \
 } while(0)
 
 /**
- * Function-like prototype:
- * int _print_error(const char * _level, const char * _fmt, ...);
+ * Check condition.
+ * if condition is false, do _BLOCK.
+ *
+ * @param _x                Condition. Error occures when it is zero(false).
+ * @param _fmt              Formated message.
+ */
+#define check_do(_x, _BLOCK, _fmt, ...)                                     \
+do {                                                                        \
+if (!(_x)) {                                                                \
+_print_log(stdout, "Warning", _fmt, ##__VA_ARGS__);                         \
+_BLOCK									    \
+}                                                                           \
+} while(0)
+
+/**
+ * Print log.
  *
  * @param _level            Level of error.
  * @param _fmt              Formated message.

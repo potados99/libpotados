@@ -17,9 +17,11 @@ RET p_with_input(FILE           *from,
     
     verify(from, RET_WRONG_PARAM, "from is null.");
     verify(and_then, RET_WRONG_PARAM, "and_then is null.");
-    
+
     char total_buf[1024]    = {0, };
     int total_len           = 0;
+
+    check_do(about < (int)sizeof(total_buf), { about = 1024; }, "about is %d, exceeds max buffer size %d.", about, (int)sizeof(total_buf));
     
     char current_char       = 0;
     char * p                = total_buf;
