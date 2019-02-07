@@ -2,7 +2,7 @@
 
 CC = gcc # C compiler
 CFLAGS = -fPIC -Wall -Wextra -O2 -g # C flags
-LDFLAGS = -shared -W1,-soname,$@ # linking flags
+LDFLAGS = -shared # linking flags
 RM = rm -f  # rm command
 
 TARGET_LIB = libpotados.so.1.0.0 # target lib
