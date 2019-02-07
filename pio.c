@@ -23,7 +23,7 @@ RET p_with_input(FILE           *from,
 
     check_do(about < (int)sizeof(total_buf), { about = 1024; }, "about is %d, exceeds max buffer size %d.", about, (int)sizeof(total_buf));
     
-    char current_char       = 0;
+    int current_char       = 0;
     char * p                = total_buf;
     
     int got_eof             = 0;
